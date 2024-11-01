@@ -9,9 +9,7 @@ export default function Home() {
   // Fetch data directly within the component
  // const data =  fetchHomepageData();
  // const { welcomeMessage, featuredEvents } = data;
-  const imageData = fetchWelcomeImageData();
-  const { eventsImage } = data;
-  
+
   const videos = [
     "/videos/Welcome1.mp4",
     "/videos/Welcome2.mp4"
@@ -26,7 +24,7 @@ export default function Home() {
     <div className="container">
       <section className={styles.heroSection}>
 
-         <Link href="/" className={styles.logo}>
+       <Link href="/" className={styles.logo}>
               <img src="/images/logo.png" alt="Greystones Lawn Tennis Club Logo" />
             </Link>
         {/* Background Video */}
