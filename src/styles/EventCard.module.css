@@ -1,0 +1,13 @@
+/* src/styles/EventCard.module.css */
+.card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  

@@ -1,0 +1,110 @@
+/* src/styles/Home.module.css */
+
+.heroSection {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensures the video stays behind the hero content */
+  }
+  
+  .heroContent {
+    position: relative;
+    z-index: 1; /* Ensures the text content is above the video */
+  }
+  
+  /* Ensure other sections stack below the hero section */
+  .eventsSection,
+  .membershipSection,
+  .contactSection {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Ensure stacking order */
+  }
+  
+  .eventsSection {
+    background-image: url('/images/events-image.jpg');
+  }
+  
+  .membershipSection {
+    background-image: url('/images/membership-image.jpg');
+  }
+  
+  .contactSection {
+    background-image: url('/images/contact-image.jpg');
+  }
+  
+
+ /* src/styles/Home.module.css */
+
+/* Logo styles */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10; /* Ensure it stays above other elements */
+  }
+  
+  .logo img {
+    height: 50px; /* Adjust as needed for logo size */
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .navbar ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #ffffff;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #f7c046;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .logo img {
+      height: 40px; /* Adjust logo size for mobile */
+    }
+  }
+  
