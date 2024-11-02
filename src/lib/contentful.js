@@ -2,19 +2,15 @@
 import { createClient } from 'contentful';
 
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 });
 
-export async function fetchHomepageData() {
-  const res = await client.getEntries({ content_type: 'homepage' });
-  const homepageData = res.items[0].fields;
-
+export async function fetchHomepageImages() {
+  const res = await client.getEntries({ content_type: 'welcomeImage' });
+ 
   return {
-    welcomeMessage: homepageData.title,
-    // featuredEvents: homepageData.featuredEvents.map((event) => ({
-    //     title: event.fields.title,
-    // })),
+    url: 'https:'+res.items[0].fields.eventsImage.fields.file.url,
   };
 }
 export async function fetchWelcomeImageData() {

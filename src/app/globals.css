@@ -1,4 +1,5 @@
 /* src/styles/globals.css */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +10,6 @@ html, body {
   height: 100%;
   font-family: Arial, sans-serif;
   scroll-behavior: smooth;
-  perspective: 1px;
   overflow-x: hidden;
 }
 
@@ -25,6 +25,5 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   text-align: center;
 }
