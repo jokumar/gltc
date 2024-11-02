@@ -8,11 +8,32 @@ const client = createClient({
 
 export async function fetchHomepageImages() {
   const res = await client.getEntries({ content_type: 'welcomeImage' });
- 
+  const urls = [];
+  for (const field in res.items[0].fields) {
+    if (field.startsWith('eventsImage') && res.items[0].fields[field].fields?.file?.url) {
+      urls.push('https:' + res.items[0].fields[field].fields.file.url);
+    }
+  }
+  
   return {
-    url: 'https:'+res.items[0].fields.eventsImage.fields.file.url,
+    urls,
   };
 }
+
+export async function fetchHomepageVideos() {
+    const res = await client.getEntries({ content_type: 'welcomevideo' });
+    const urls = [];
+    for (const field in res.items[0].fields) {
+      if (field.startsWith('video') && res.items[0].fields[field].fields?.file?.url) {
+        urls.push('https:' + res.items[0].fields[field].fields.file.url);
+      }
+    }
+
+    return {
+      urls,
+    };
+  }
+
 export async function fetchWelcomeImageData() {
     const res = await client.getEntries({ content_type: 'welcomeImage' });
     const welcomeData = res.items[0].fields;

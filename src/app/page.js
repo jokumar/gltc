@@ -1,6 +1,6 @@
 // src/app/page.js
 "use client";
-import { fetchHomepageImages } from '../lib/contentful';
+import { fetchHomepageImages,fetchHomepageVideos } from '../lib/contentful';
 import EventCard from '../components/EventCard';
 import styles from '../styles/Home.module.css';
 import { useState,useEffect } from 'react';
@@ -19,7 +19,7 @@ export default function Home() {
     const fetchData = async () => {
         try {
             const data = await fetchHomepageImages();
-            setImageUrl(data.url); 
+            setImageUrl(data.urls); 
         } catch (error) {
             console.error("Error fetching images:", error);
         }
@@ -28,12 +28,21 @@ export default function Home() {
     fetchData();
 }, []);
 
+const [videos, setVideoUrl] = useState([]);
+useEffect(() => {
+  const fetchData = async () => {
+      try {
+          const data = await fetchHomepageVideos();
+          setVideoUrl(data.urls); 
+      } catch (error) {
+          console.error("Error fetching videos:", error);
+      }
+  };
+
+  fetchData();
+}, []);
 
 
-  const videos = [
-    "/videos/Welcome1.mp4",
-    "/videos/Welcome2.mp4"
-  ];
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const handleVideoEnd = () => {
@@ -46,21 +55,22 @@ export default function Home() {
         <img src="/images/logo.png" alt="Greystones Lawn Tennis Club Logo" />
       </Link>
       <section className={`${styles.heroSection} ${styles.zoomSection}`}>
-    
-      
-      <video
-        key={currentVideoIndex}
-        autoPlay
-        muted
-        loop={false}
-        playsInline
-        className={styles.backgroundVideo}
-        onEnded={handleVideoEnd}
-      >
-        <source src={videos[currentVideoIndex]} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-  
+        <div className="backgroundVideoWrapper">
+              {videos.length > 0 && (
+              <video
+                key={currentVideoIndex}
+                autoPlay
+                muted
+                loop={false}
+                playsInline
+                className={styles.backgroundVideo}
+                onEnded={handleVideoEnd}
+              >
+                <source src={videos[currentVideoIndex]} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              )}
+        </div>
       <div className={styles.heroContent}>
         <h1 className={styles.heading}>Greystones Lawn Tennis Club</h1>
         <nav className={styles.navbar}>
@@ -79,7 +89,7 @@ export default function Home() {
       <div>
         <h2>Upcoming Events</h2>
         <p>Explore our exciting tournaments and coaching sessions.</p>
-        {imageUrl && <img src={imageUrl} alt="Upcoming Events" />}
+        {imageUrl && <img src={imageUrl[0]} alt="Upcoming Events" />}
       </div>
     </section>
   
@@ -88,7 +98,7 @@ export default function Home() {
       <div>
         <h2>Membership</h2>
         <p>Become a part of our community and enjoy exclusive benefits.</p>
-        {imageUrl && <img src={imageUrl} alt="Membership Benefits" />}
+        {imageUrl && <img src={imageUrl[1]} alt="Membership Benefits" />}
       </div>
     </section>
   
@@ -96,7 +106,7 @@ export default function Home() {
       <div>
         <h2>Contact Us</h2>
         <p>Reach out and be a part of something great!</p>
-        {imageUrl && <img src={imageUrl} alt="Contact Us" />}
+        {imageUrl && <img src={imageUrl[2]} alt="Contact Us" />}
       </div>
     </section>
   </div>
