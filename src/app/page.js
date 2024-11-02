@@ -5,7 +5,13 @@ import EventCard from '../components/EventCard';
 import styles from '../styles/Home.module.css';
 import { useState,useEffect } from 'react';
 import Link from 'next/link';
+import useScrollZoom from '../hooks/useScrollZoom';
+
 export default function Home() {
+
+
+   useScrollZoom(`.${styles.zoomSection}`);
+
   // Fetch data directly within the component
 
   const [imageUrl, setImageUrl] = useState('');
@@ -36,10 +42,11 @@ export default function Home() {
 
   return (
     <div className="container">
-    <section className={styles.heroSection}>
-      <Link href="/" className={styles.logo}>
+      <Link href="/" className={styles.logo} >
         <img src="/images/logo.png" alt="Greystones Lawn Tennis Club Logo" />
       </Link>
+      <section className={`${styles.heroSection} ${styles.zoomSection}`}>
+    
       
       <video
         key={currentVideoIndex}
@@ -68,7 +75,7 @@ export default function Home() {
       </div>
     </section>
   
-    <section id="events" className={styles.eventsSection}>
+    <section id="events" className={`${styles.eventsSection} ${styles.zoomSection}`}>
       <div>
         <h2>Upcoming Events</h2>
         <p>Explore our exciting tournaments and coaching sessions.</p>
@@ -76,7 +83,8 @@ export default function Home() {
       </div>
     </section>
   
-    <section id="membership" className={styles.membershipSection}>
+    <section id="membership"  className={`${styles.membershipSection} ${styles.zoomSection}`}>
+
       <div>
         <h2>Membership</h2>
         <p>Become a part of our community and enjoy exclusive benefits.</p>
@@ -84,7 +92,7 @@ export default function Home() {
       </div>
     </section>
   
-    <section id="contact" className={styles.contactSection}>
+    <section id="contact" className={`${styles.contactSection} ${styles.zoomSection}`}>
       <div>
         <h2>Contact Us</h2>
         <p>Reach out and be a part of something great!</p>
@@ -96,3 +104,5 @@ export default function Home() {
   );
 
 }
+
+
