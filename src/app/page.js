@@ -65,7 +65,7 @@ export default function Home() {
         <h1 className={styles.heading}>Greystones Lawn Tennis Club</h1>
         <nav className={styles.navbar}>
           <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home">About Us</a></li>
             <li><a href="#events">Events</a></li>
             <li><a href="#membership">Membership</a></li>
             <li><a href="#contact">Contact Us</a></li>
