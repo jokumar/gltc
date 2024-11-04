@@ -1,0 +1,62 @@
+
+/* Background */
+.aboutPage {
+    display: flex;
+    background:linear-gradient(150deg, teal, transparent);
+    color: #fff;
+    min-height: 100vh;
+    padding: 50px;
+    position: relative;
+  }
+  
+  
+  .logo {
+    position: relative;
+    z-index: 11;
+  }
+  
+  .logo img {
+    height: 80px;
+  
+  }
+  
+  /* Image */
+  .aboutImage {
+    flex: 1;
+    max-width: 40%;
+
+    margin-right: 40px;
+    margin-left: 20px;
+    object-fit: scale-down;
+  }
+  
+  /* Title */
+  .aboutTitle {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    font-size: 4rem;
+    font-family: serif;
+    color: #2a4d55;
+    z-index: 1;
+    letter-spacing: 5px;
+    white-space: nowrap;
+  }
+  
+  /* Description Section */
+  .aboutContent {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .highlight {
+    color:  #A4C639;
+    font-weight: bold;
+  }
+  
+  .aboutText {
+    line-height: 1.6;
+    max-width: 600px;
+    color: #2a4d55;
+  }
+  

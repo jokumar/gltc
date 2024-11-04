@@ -1,0 +1,33 @@
+/* src/styles/PageLayout.module.css */
+
+.pageLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: teal;
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .image {
+    max-width: 80%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+  
