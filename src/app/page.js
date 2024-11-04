@@ -1,7 +1,6 @@
 // src/app/page.js
 "use client";
-import { fetchHomepageImages,fetchHomepageVideos } from '../lib/contentful';
-import EventCard from '../components/EventCard';
+import { fetchContentFulImageUrls,fetchHomepageVideos } from '../lib/contentful';
 import styles from '../styles/Home.module.css';
 import { useState,useEffect } from 'react';
 import Link from 'next/link';
@@ -18,7 +17,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const data = await fetchHomepageImages();
+            const data = await fetchContentFulImageUrls('welcomeImage','eventsImage');
             setImageUrl(data.urls); 
         } catch (error) {
             console.error("Error fetching images:", error);
@@ -75,10 +74,10 @@ useEffect(() => {
         <h1 className={styles.heading}>Greystones Lawn Tennis Club</h1>
         <nav className={styles.navbar}>
           <ul>
-            <li><a href="#home">About Us</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#membership">Membership</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><Link href="/about">About Us</Link></li>
+            <li><Link href="#events">Events</Link></li>
+            <li><Link href="/membership">Membership</Link></li>
+            <li><Link href="#contact">Contact Us</Link></li>
           </ul>
         </nav>
         <button className={styles.joinButton}>Join Now</button>

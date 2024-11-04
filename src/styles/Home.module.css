@@ -1,5 +1,8 @@
 /* src/styles/Home.module.css */
-
+.container{
+    background:linear-gradient(150deg, teal, transparent);
+    
+}
 .heroSection {
     position: relative;
     height: 100vh;
@@ -9,7 +12,7 @@
     justify-content: center;
     color: white;
     z-index: 1;
-    background-color: #007A8B; /* Base teal color */
+ 
   }
   
   .backgroundVideo {
@@ -100,7 +103,7 @@
     align-items: center;
     justify-content: center;
     color: white;
-    background-color: #278a97; /* Same background color to match teal theme */
+   
     background-size: cover;
     background-position: center;
   }

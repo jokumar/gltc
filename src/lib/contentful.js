@@ -6,20 +6,6 @@ const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 });
 
-export async function fetchHomepageImages() {
-  const res = await client.getEntries({ content_type: 'welcomeImage' });
-  const urls = [];
-  for (const field in res.items[0].fields) {
-    if (field.startsWith('eventsImage') && res.items[0].fields[field].fields?.file?.url) {
-      urls.push('https:' + res.items[0].fields[field].fields.file.url);
-    }
-  }
-  
-  return {
-    urls,
-  };
-}
-
 export async function fetchHomepageVideos() {
     const res = await client.getEntries({ content_type: 'welcomevideo' });
     const urls = [];
@@ -51,3 +37,29 @@ export async function fetchWelcomeImageData() {
 //     title: event.fields.title,
 //   }));
 // }
+
+
+
+export async function fetchContentFulImageUrls(contentType, startsWithField) {
+    const res = await client.getEntries({ content_type: contentType });
+    const urls = [];
+    for (const field in res.items[0].fields) {
+      if (field.startsWith(startsWithField) && res.items[0].fields[field].fields?.file?.url) {
+        urls.push('https:' + res.items[0].fields[field].fields.file.url);
+      }
+    }
+    
+    return {
+      urls,
+    };
+  }
+
+
+  export async function fetchAboutUsData() {
+    const res = await client.getEntries({ content_type: 'aboutUs' });
+     return res.items.map((event) => ({
+         title: event.fields.title,
+         titleText: event.fields.titleText,
+         
+     }));
+  }

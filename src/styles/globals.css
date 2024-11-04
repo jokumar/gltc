@@ -31,3 +31,13 @@
     text-align: center;
   }
 
+  .logo {
+    position: relative;
+    top: 100px;
+    left: 20px;
+    z-index: 11;
+  }
+  
+  .logo img {
+    height: 80px;
+  }
