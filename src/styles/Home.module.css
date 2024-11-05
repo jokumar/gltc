@@ -103,7 +103,7 @@
     align-items: center;
     justify-content: center;
     color: white;
-   
+    background:linear-gradient(150deg, teal, transparent);
     background-size: cover;
     background-position: center;
   }
