@@ -1,58 +1,90 @@
-/* Background */
+/* Main Container */
 .aboutPage {
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(150deg, teal, transparent);
-  color: #fff;
-  min-height: 100vh;
-  padding: 50px;
-  position: relative;
-}
-
-.logo {
-  position: relative;
-  top: 100px;
-  left: 20px;
-  z-index: 11;
-}
-
-.logo img {
-  height: 80px;
-}
-
-/* Image */
-.aboutImage {
-  width: 100%; /* Expand the image to full width */
-  height: 80vh; /* Adjust height as needed for full-screen effect */
-  object-fit: cover; /* Make sure the image covers the area without distortion */
-  position: relative; /* Ensures the logo can be positioned on top */
-  z-index: 1; /* Keeps the image below the logo */
-}
-
-/* Title */
-.aboutTitle {
-  font-size: 4rem;
-  font-family: serif;
   color: #2a4d55;
-  letter-spacing: 5px;
-  white-space: nowrap;
-  margin-top: 20px;
-  text-align: center; /* Center-align the title */
+  font-family: Arial, sans-serif;
 }
 
-/* Description Section */
-.aboutContent {
-  padding: 20px;
+/* Full-screen Image Container */
+.fullscreenImageContainer {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.highlight {
-  color: #A4C639;
-  font-weight: bold;
+.fullscreenImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.aboutText {
-  line-height: 1.6;
+/* About Text Section */
+.aboutTextSection,
+.finalTextSection {
+  padding: 60px 20px;
+  background-color: #f4f4f4;
+  color: #2a4d55;
+  text-align: center;
+}
+
+.aboutTextSection h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.scrollZoomText {
+  font-size: 1.2rem;
   max-width: 600px;
-  color: #2a4d55;
-  margin: 0 auto; /* Center-align the text */
+  margin: 20px auto;
+  opacity: 0.5;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(1); /* Initial scale */
 }
+/* Gallery Section */
+.gallerySection {
+  display: flex;
+  gap: 20px;
+  padding: 40px 20px;
+  overflow-x: auto;
+  justify-content: center;
+  background-color: #eaeaea;
+}
+
+.galleryImageWrapper {
+  position: relative;
+  overflow: hidden;
+  width: 150px;
+  height: 100px;
+  transform: translateY(10%);
+  transition: transform 0.3s ease;
+}
+
+.galleryImageWrapper:hover {
+  transform: scale(1.1); /* Hover zoom effect */
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Final Text Section */
+.finalTextSection {
+  padding: 60px 20px;
+  background-color: #fff;
+  color: #2a4d55;
+  text-align: center;
+}
+
+
+  .logo {
+    position: relative;
+    top: 100px;
+    left: 20px;
+    z-index: 11;
+  }
+  
+  .logo img {
+    height: 80px;
+  }

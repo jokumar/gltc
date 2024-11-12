@@ -38,14 +38,30 @@ export async function fetchWelcomeImageData() {
 //   }));
 // }
 
-
-
 export async function fetchContentFulImageUrls(contentType, startsWithField) {
     const res = await client.getEntries({ content_type: contentType });
     const urls = [];
     for (const field in res.items[0].fields) {
       if (field.startsWith(startsWithField) && res.items[0].fields[field].fields?.file?.url) {
         urls.push('https:' + res.items[0].fields[field].fields.file.url);
+      }
+    }
+    
+    return {
+      urls,
+    };
+  }
+  export async function fetchContentFulImageUrlsAndDesc(contentType, startsWithField) {
+    const res = await client.getEntries({ content_type: contentType });
+    const urls = [];
+
+    for (const field in res.items[0].fields) {
+      
+      if (field.startsWith(startsWithField) && res.items[0].fields[field].fields?.file?.url) {
+        urls.push({url:'https:' + res.items[0].fields[field].fields.file.url,
+        description:res.items[0].fields[field].fields.description,
+        ref:res.items[0].fields[field].fields.title
+        });
       }
     }
     
