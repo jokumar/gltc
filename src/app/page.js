@@ -5,7 +5,8 @@ import styles from '../styles/Home.module.css';
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import useScrollZoom from '../hooks/useScrollZoom';
-
+import AdultSection from './adults/page'
+import Footer from '../components/Footer';
 export default function Home() {
 
 
@@ -179,10 +180,9 @@ export default function Home() {
           </button>
 
         </div>
-
-
       </section>
 
+           <AdultSection/>   
 
 
 
@@ -190,18 +190,22 @@ export default function Home() {
       <section id="membership" className={`${styles.membershipSection} ${styles.zoomSection}`}>
 
         <div>
-          <h2 className={styles.heading}>Adults</h2>
+          <h2 className={styles.subheading}>Adults</h2>
           {/* {imageUrl && <img src={imageUrl[1]} alt="Membership Benefits" />} */}
         </div>
       </section>
 
-      <section id="contact" className={`${styles.contactSection} ${styles.zoomSection}`}>
+      <section id="contact" className={`${styles.contactSection} ${styles.zoomSection}`} style={{ height: "50vh" }}>
         <div>
-          <h2 className={styles.heading}>Juniors</h2>
+          <h2 className={styles.subheading}>Juniors</h2>
           {/* {imageUrl && <img src={imageUrl[2]} alt="Contact Us" />} */}
         </div>
       </section>
 
+
+
+
+    <Footer/>
     </div>
 
   );

@@ -4,66 +4,69 @@
     padding: 20px 0;
     text-align: center;
     font-family: Arial, sans-serif;
-  }
-  
-  .footer-container {
+
+    scroll-snap-align: end;}
+
+.footerContainer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  .footer-section {
+    background:linear-gradient(150deg, teal, transparent);
+}
+
+.footerSection {
     flex: 1 1 200px;
     margin: 10px;
-  }
-  
-  .footer-section h3 {
+    color:#0c3737;
+ 
+}
+
+.footerSection h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
     text-transform: uppercase;
-  }
-  
-  .footer-section ul {
+}
+
+.footerSection ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .footer-section ul li {
+}
+
+.footerSection ul li {
     margin: 5px 0;
-  }
-  
-  .footer-section ul li a {
-    color: #ddd;
+}
+
+.footerSection ul li a {
+    color: #184100;
     text-decoration: none;
-  }
-  
-  .footer-section ul li a:hover {
+}
+
+.footerSection ul li a:hover {
     text-decoration: underline;
-  }
-  
-  .footer-section p {
+}
+
+.footerSection p {
     margin: 5px 0;
-    color: #ddd;
-  }
-  
-  .footer-section .weather-widget iframe,
-  .footer-section iframe {
+    color: #184100;
+}
+
+.footerSection .weatherWidget iframe,
+.footerSection iframe {
     border: 0;
     border-radius: 8px;
-  }
-  
-  .footer-bottom {
+}
+
+.footerBottom {
     background-color: #222;
     padding: 10px;
     font-size: 0.9em;
     color: #aaa;
-  }
-  
-  .footer-bottom p {
+}
+
+.footerBottom p {
     margin: 0;
-  }
-  
+}

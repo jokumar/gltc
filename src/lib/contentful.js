@@ -53,6 +53,7 @@ export async function fetchContentFulImageUrls(contentType, startsWithField) {
   }
   export async function fetchContentFulImageUrlsAndDesc(contentType, startsWithField) {
     const res = await client.getEntries({ content_type: contentType });
+    console.log(contentType +" ->", res)
     const urls = [];
 
     for (const field in res.items[0].fields) {
