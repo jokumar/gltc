@@ -71,6 +71,20 @@ export async function fetchContentFulImageUrls(contentType, startsWithField) {
     };
   }
 
+  export async function fetchJsonData(contentType, startsWithField) {
+    const res = await client.getEntries({ content_type: contentType });
+
+    const jsonArray = [];
+    for (const field in res.items[0].fields) {
+      if (field.startsWith(startsWithField) && res.items[0].fields[field]){
+        jsonArray.push(res.items[0].fields[field]);
+      }
+
+    }
+    return {
+      jsonArray,
+    };
+  }
 
   export async function fetchAboutUsData() {
     const res = await client.getEntries({ content_type: 'aboutUs' });

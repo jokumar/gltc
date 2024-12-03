@@ -81,16 +81,18 @@ export default function AdultSection() {
   };
   // Calculate the group of three images to display
   const visibleImages = imageData.slice(currentIndex, currentIndex + 3);
-  console.log('visibleImages', visibleImages);
+  
   if (visibleImages.length < 3) {
     visibleImages.push(...imageData.slice(0, 3 - visibleImages.length)); // Loop around if fewer than 3 remain
   }
     return (
         <section className={`${styles.eventsSection} `}>
+          <h2 className={styles.subheading}>Adults</h2>
+       
+        <div className={styles.imageScrollContainer}>
         <button className={styles.scrollButton} onClick={handleScrollLeft}>
           &larr;
         </button>
-        <div className={styles.imageScrollContainer}>
           {visibleImages.map((image, index) => (
             <div key={index} className="image-slide">
               <Link href={image.ref ? `/events/${image.ref}` : "/events"} >
